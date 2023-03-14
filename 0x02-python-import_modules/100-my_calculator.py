@@ -1,25 +1,22 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
-    import calculator_1, sys
-    a = int(sys.argv[1])
-    b = int(sys.argv[3])
-    op = sys.argv[2]
-    count = len(sys.argv) - 1
+    import sys
+    from calculator_1 import add, sub, mul, div
+    count = len(sys.argv)
     if count != 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
-    plus = calculator_1.add(a, b)
-    minu = calculator_1.sub(a, b)
-    mult = calculator_1.mul(a, b)
-    divi = calculator_1.div(a, b)
+    a = int(sys.argv[1])
+    b = int(sys.argv[3])
+    op = sys.argv[2]
     if op == "+":
-        print("{} + {} = {}".format(a, b, plus))
+        print("{} + {} = {}".format(a, b, add(a, b)))
     elif op == "-":
-        print("{} - {} = {}".format(a, b, minu))
+        print("{} - {} = {}".format(a, b, sub(a, b)))
     elif op == "*":
-        print("{} * {} = {}".format(a, b, mult))
+        print("{} * {} = {}".format(a, b, mul(a, b)))
     elif op == "/":
-        print("{} / {} = {}".format(a, b, div))
+        print("{} / {} = {}".format(a, b, div(a, b)))
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
